@@ -1,0 +1,9 @@
+@use 'tailwindcss/base';
+@use 'tailwindcss/utilities';
+@use 'tailwindcss/components';
+@use './variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
