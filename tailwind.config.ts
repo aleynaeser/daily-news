@@ -12,6 +12,15 @@ export default {
       sm: { min: '575px', max: '991px' },
       md: { max: '1199px' },
     },
+    animation: {
+      grid: 'grid 20s linear infinite',
+    },
+    keyframes: {
+      grid: {
+        '0%': { transform: 'translateY(-50%)' },
+        '100%': { transform: 'translateY(0)' },
+      },
+    },
     extend: {
       colors: {
         base: 'var(--base)',

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Anonymous_Pro } from 'next/font/google';
+import { BackgroundGrid } from '@components/BackgroundGrid';
 import * as motion from 'motion/react-client';
 
 import '@styles/globals.scss';
@@ -35,10 +36,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <motion.body
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className={`relative mx-auto my-10 h-full max-w-4xl bg-base text-sm text-primary border border-primary`}
+        className={`relative h-full bg-base text-sm text-primary`}
         transition={{ duration: 0.5, scale: { type: 'spring', visualDuration: 0.5, bounce: 0.5 } }}
       >
-        {children}
+        <main
+          className={`relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border border-dark bg-base p-5 text-sm text-primary`}
+        >
+          {children}
+        </main>
+
+        <BackgroundGrid />
       </motion.body>
     </html>
   );
