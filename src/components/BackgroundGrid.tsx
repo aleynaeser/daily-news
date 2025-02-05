@@ -72,7 +72,7 @@ export function BackgroundGrid() {
         canvas.height / 2,
         Math.sqrt(Math.pow(canvas.width, 2) + Math.pow(canvas.height, 2)) / 2,
       );
-      gradient.addColorStop(0, 'rgba(6, 6, 6, 0.3)');
+      gradient.addColorStop(0, 'rgba(6, 6, 6, 0.25)');
       gradient.addColorStop(1, '#060606');
 
       ctx.fillStyle = gradient;
