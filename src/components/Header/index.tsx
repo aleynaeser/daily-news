@@ -1,3 +1,13 @@
+import Logo from './Logo';
+import Menu from './Menu';
+import Tagline from './Tagline';
+
 export default function Header() {
-  return <div>Header</div>;
+  return (
+    <header className=''>
+      <Logo />
+      <Tagline />
+      <Menu />
+    </header>
+  );
 }
