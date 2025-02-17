@@ -33,11 +33,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <motion.body
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className={`font-anonymousPro relative h-full bg-base text-sm text-primary`}
+        className={`font-anonymousPro relative h-full bg-black text-sm text-white`}
         transition={{ duration: 0.5, scale: { type: 'spring', visualDuration: 0.5, bounce: 0.5 } }}
       >
         <main
-          className={`relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border border-dark bg-base text-sm text-primary`}
+          className={`border-black-light relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border bg-black text-sm text-white`}
         >
           <Header />
           {children}
