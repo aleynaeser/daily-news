@@ -19,9 +19,10 @@
       }
     ],
     "paths": {
-      "@icons/*": ["./src/assets/icons/*"],
       "@constants/*": ["./src/constants/*"],
       "@components/*": ["./src/components/*"],
+      "@icons/*": ["./src/assets/icons/*"],
+      "@fonts/*": ["./src/assets/fonts/*"],
       "@styles/*": ["./src/styles/*"],
       "@/*": ["./src/*"]
     }

@@ -7,6 +7,10 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      anonymousPro: ['var(--anonymous-pro-font)'],
+      atariClassic: ['var(--atari-classic-font)'],
+    },
     screens: {
       xs: { max: '575px' },
       sm: { min: '575px', max: '991px' },
