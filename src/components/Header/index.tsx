@@ -4,7 +4,7 @@ import Tagline from './Tagline';
 
 export default function Header() {
   return (
-    <header className='grid min-h-52 auto-cols-fr auto-rows-auto'>
+    <header className='grid min-h-44 auto-cols-fr auto-rows-auto'>
       <Logo />
       <Tagline />
       <Menu />
