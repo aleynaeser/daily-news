@@ -17,12 +17,21 @@ export default {
       md: { max: '1199px' },
     },
     animation: {
+      shine: 'shine 3s linear infinite',
       grid: 'grid 20s linear infinite',
+      blink: 'blink 1.5s infinite steps(1)',
     },
     keyframes: {
+      shine: {
+        '0%': { 'background-position': '100%' },
+        '100%': { 'background-position': '-100%' },
+      },
       grid: {
         '0%': { transform: 'translateY(-50%)' },
         '100%': { transform: 'translateY(0)' },
+      },
+      blink: {
+        '50%': { opacity: '0' },
       },
     },
     extend: {
