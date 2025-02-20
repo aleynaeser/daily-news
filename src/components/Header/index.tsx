@@ -1,3 +1,4 @@
+import Banner from './Banner';
 import Logo from './Logo';
 import Menu from './Menu';
 import Tagline from './Tagline';
@@ -8,6 +9,7 @@ export default function Header() {
       <Logo />
       <Tagline />
       <Menu />
+      <Banner />
     </header>
   );
 }

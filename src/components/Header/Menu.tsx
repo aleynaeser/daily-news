@@ -1,11 +1,10 @@
 import { menuItems } from '@constants/menu-items';
 import Link from 'next/link';
-import React from 'react';
 
 export default function Menu() {
   return (
     <div className='border-black-light col-[4/5] flex flex-col justify-center gap-5 border-r p-6'>
-      <ul className='text-off-white flex flex-col gap-2 text-xs'>
+      <ul className='flex flex-col gap-2 text-xs'>
         {menuItems.map((item, index) => (
           <li
             key={index}
@@ -24,7 +23,7 @@ export default function Menu() {
       <Link
         href='https://www.linkedin.com/in/aleyna-eser-818043185/'
         target='_blank'
-        className='font-atariClassic hover:bg-magenta hover:from-inherit hover:to-inherit default:from-[#a48e00] rounded-2xl bg-gradient-to-l from-[#a48e00] to-[#a92777] px-2 py-[5px] text-center text-[9px] duration-150 ease-in-out'
+        className='font-atariClassic hover:bg-magenta rounded-2xl bg-gradient-to-l from-[#a48e00] to-[#a92777] px-2 py-[5px] text-center text-[9px] duration-150 ease-in-out default:from-[#a48e00] hover:from-inherit hover:to-inherit'
       >
         Get Touch
       </Link>
