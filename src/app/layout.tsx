@@ -3,6 +3,7 @@ import { BackgroundGrid } from '@components/BackgroundGrid';
 import { anonymousProFont } from '@fonts/anonymous-pro-font';
 import { atariClassicFont } from '@fonts/attari-classic-font';
 import Header from '@components/Header';
+import Footer from '@components/Footer';
 import * as motion from 'motion/react-client';
 
 import '@styles/globals.scss';
@@ -33,14 +34,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <motion.body
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className={`font-anonymousPro text-off-white relative h-full bg-black text-sm`}
+        className={`relative h-full bg-black font-anonymousPro text-sm text-off-white`}
         transition={{ duration: 0.5, scale: { type: 'spring', visualDuration: 0.5, bounce: 0.5 } }}
       >
         <main
-          className={`border-black-light relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border bg-black text-sm`}
+          className={`relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border border-black-light bg-black text-sm`}
         >
           <Header />
           {children}
+          <Footer />
         </main>
 
         <BackgroundGrid />

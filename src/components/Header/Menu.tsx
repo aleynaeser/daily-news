@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Menu() {
   return (
-    <div className='border-black-light col-[4/5] flex flex-col justify-center gap-5 border-r p-6'>
+    <div className='border-black-light col-[4/5] flex flex-col justify-center gap-5 border-r p-5'>
       <ul className='flex flex-col gap-2 text-xs'>
         {menuItems.map((item, index) => (
           <li

@@ -2,7 +2,7 @@ export default function Logo() {
   return (
     <a
       href='/'
-      className='border-black-light font-atariClassic col-[1/2] flex flex-col items-center justify-center border-r p-6 text-lg text-white'
+      className='border-black-light font-atariClassic col-[1/2] flex flex-col items-center justify-center border-r p-5 text-lg text-white'
     >
       <div className='w-fit'>DAILY</div>
 
