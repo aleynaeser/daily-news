@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className='text-[11px] text-gray-light'>
       <div className='flex items-center justify-between border-t border-black-light p-5'>
-        <div className='grid grid-cols-5 gap-0.5'>
+        <div className='grid grid-cols-5 gap-0.5 opacity-50'>
           <span className='h-[6px] w-[6px] bg-yellow'></span>
           <span className='h-[6px] w-[6px] bg-magenta'></span>
           <span className='h-[6px] w-[6px] bg-blue'></span>
