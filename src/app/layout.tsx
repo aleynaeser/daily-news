@@ -41,7 +41,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           className={`relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border border-black-light bg-black text-sm`}
         >
           <Header />
-          {children}
+          <section className='min-h-[calc(100vh-450px)]'>{children}</section>
           <Footer />
         </main>
 
