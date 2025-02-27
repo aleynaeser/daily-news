@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use server';
 
+import { SERVICE_COUNTRY } from '@enums/service-country.enum';
+import { SERVICE_LANGUAGE } from '@enums/service-language.enum';
+
 type THeaderConfig = { [key: string]: string };
 
 interface IApiConfig {
@@ -32,13 +35,21 @@ export const createConfig = async (config: IApiConfig) => {
     credentials: 'include',
     cache: 'force-cache',
     headers: headers,
+    params: {
+      country: SERVICE_COUNTRY.US,
+      language: SERVICE_LANGUAGE.EN,
+      ...config.params,
+    },
     ...config,
   };
 
   return { path, manipulatedConfig };
 };
 
-export async function baseFetch<T = any>(url: string, config: IApiConfig): Promise<TServiceListResponse<T>> {
+export async function baseFetch<T = any>(
+  url: string,
+  config: IApiConfig,
+): Promise<TServiceListResponse<T> | TServiceErrorResponse> {
   const { path, manipulatedConfig } = await createConfig(config);
   const manipulatedUrl = url?.[0] === '/' || url === '' ? url : '/' + url;
   const completeURL = new URL(path + manipulatedUrl);
@@ -51,12 +62,11 @@ export async function baseFetch<T = any>(url: string, config: IApiConfig): Promi
     const response = await fetch(completeURL, manipulatedConfig);
     if (!response.ok) throw response;
 
-    return response.json();
+    return response.json() as Promise<TServiceListResponse<T>>;
   } catch (error: any) {
     if (error) {
       const errorJSON = (await error.json?.()) ?? undefined;
       const errorString = JSON.stringify({ status: error.status, ...(errorJSON ?? error) });
-
       throw new Error(errorString);
     }
 

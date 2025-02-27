@@ -19,6 +19,7 @@
       }
     ],
     "paths": {
+      "@enums/*": ["./src/enums/*"],
       "@constants/*": ["./src/constants/*"],
       "@components/*": ["./src/components/*"],
       "@icons/*": ["./src/assets/icons/*"],
