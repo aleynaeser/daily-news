@@ -2,6 +2,6 @@
 
 import { get } from '../fetch-api';
 
-const path = '/top-headlines';
+const path = 'top-headlines';
 
-export const listNews = (params: TServiceParams) => get<INewsArticle>(path, { params, path });
+export const listNews = async (params: TServiceParams) => get<INewsArticle>("", { params, path });

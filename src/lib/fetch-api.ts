@@ -30,6 +30,7 @@ export const createConfig = async (config: IApiConfig) => {
   };
 
   const manipulatedConfig: IApiConfig = {
+    ...config,
     method: 'GET',
     redirect: 'follow',
     credentials: 'include',
@@ -40,7 +41,6 @@ export const createConfig = async (config: IApiConfig) => {
       language: SERVICE_LANGUAGE.EN,
       ...config.params,
     },
-    ...config,
   };
 
   return { path, manipulatedConfig };
@@ -53,23 +53,18 @@ export async function baseFetch<T = any>(
   const { path, manipulatedConfig } = await createConfig(config);
   const manipulatedUrl = url?.[0] === '/' || url === '' ? url : '/' + url;
   const completeURL = new URL(path + manipulatedUrl);
+  const params = { ...manipulatedConfig.params, ...(config.params || {}) };
 
-  if (config.params) {
-    Object.keys(config.params).forEach((key) => completeURL.searchParams.append(key, config.params![key]));
+  if (params) {
+    Object.keys(params).forEach((key) => completeURL.searchParams.append(key, params![key]));
   }
 
   try {
     const response = await fetch(completeURL, manipulatedConfig);
     if (!response.ok) throw response;
 
-    return response.json() as Promise<TServiceListResponse<T>>;
+    return response.json();
   } catch (error: any) {
-    if (error) {
-      const errorJSON = (await error.json?.()) ?? undefined;
-      const errorString = JSON.stringify({ status: error.status, ...(errorJSON ?? error) });
-      throw new Error(errorString);
-    }
-
     throw new Error(error);
   }
 }
