@@ -1,0 +1,3 @@
+export enum SERVICE_PAGINATION {
+  PAGE_SIZE_20 = 20,
+}

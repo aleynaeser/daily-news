@@ -9,7 +9,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<TSe
   return (
     <div className='flex h-full flex-col gap-4 p-5'>
       <h2 className='font-atariClassic text-magenta'>News</h2>
-      <NewsList articles={news.articles} />
+      <NewsList initialNews={news} />
     </div>
   );
 }

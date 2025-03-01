@@ -5,6 +5,7 @@ import { atariClassicFont } from '@fonts/attari-classic-font';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import * as motion from 'motion/react-client';
+import ReactQueryProvider from '@providers/ReactQueryProvider';
 
 import '@styles/globals.scss';
 
@@ -31,22 +32,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name='theme-color' content='#f9f9f9' />
       </head>
 
-      <motion.body
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className={`relative h-full bg-[#060606] font-anonymousPro text-sm text-off-white`}
-        transition={{ duration: 0.5, scale: { type: 'spring', visualDuration: 0.5, bounce: 0.5 } }}
-      >
-        <main
-          className={`relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border border-black-light bg-black text-sm`}
+      <ReactQueryProvider>
+        <motion.body
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className={`relative h-full bg-[#060606] font-anonymousPro text-sm text-off-white`}
+          transition={{ duration: 0.5, scale: { type: 'spring', visualDuration: 0.5, bounce: 0.5 } }}
         >
-          <Header />
-          <section className='min-h-[calc(100vh-450px)]'>{children}</section>
-          <Footer />
-        </main>
+          <main
+            className={`relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border border-black-light bg-black text-sm`}
+          >
+            <Header />
+            <section className='min-h-[calc(100vh-450px)]'>{children}</section>
+            <Footer />
+          </main>
 
-        <BackgroundGrid />
-      </motion.body>
+          <BackgroundGrid />
+        </motion.body>
+      </ReactQueryProvider>
     </html>
   );
 }
