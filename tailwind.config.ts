@@ -20,11 +20,16 @@ export default {
       shine: 'shine 3s linear infinite',
       grid: 'grid 20s linear infinite',
       blink: 'blink 1.5s infinite steps(1)',
+      spin: 'spin 1s linear infinite',
     },
     keyframes: {
       shine: {
         '0%': { 'background-position': '100%' },
         '100%': { 'background-position': '-100%' },
+      },
+      spin: {
+        '0%': { transform: 'rotate(0deg)' },
+        '100%': { transform: 'rotate(360deg)' },
       },
       grid: {
         '0%': { transform: 'translateY(-50%)' },

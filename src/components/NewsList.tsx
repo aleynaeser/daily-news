@@ -15,13 +15,15 @@ export default function NewsList({ initialNews }: { initialNews: TServiceListRes
     queryKey: ['get-infinite-news'],
     initialPageParam: 1,
     initialData: { pages: [initialNews], pageParams: [1] },
-    getNextPageParam: (_lastGroup, groups) => {
-      const nextPage = groups.length + 1;
-      return nextPage < (groups[0]?.totalResults ?? 2) / Number(pageSize) ? nextPage : undefined;
-    },
     queryFn: async ({ pageParam = 1 }) => {
       const result = await listNews({ page: Number(pageParam), pageSize, category: SERVICE_CATEGORY.TECHNOLOGY });
       return result;
+    },
+    getNextPageParam: (_lastGroup, groups) => {
+      const totalResults = groups[0]?.totalResults ?? 0;
+      const totalPages = Math.ceil(totalResults / pageSize);
+      const nextPage = groups.length + 1;
+      return nextPage <= totalPages ? nextPage : undefined;
     },
   });
 
@@ -38,7 +40,7 @@ export default function NewsList({ initialNews }: { initialNews: TServiceListRes
         });
 
         return (
-          <li key={index} className='flex flex-col'>
+          <li key={index} className='flex flex-col gap-1'>
             <div className='flex items-baseline justify-between gap-1'>
               <Link href={item.url} className='font-medium underline duration-150 ease-in-out hover:text-red'>
                 {item.title}
@@ -56,7 +58,7 @@ export default function NewsList({ initialNews }: { initialNews: TServiceListRes
         <motion.div
           key={totalArticleCount}
           viewport={{ once: true, amount: 0.5 }}
-          className='flex items-center justify-center'
+          className='animate-spin m-auto flex h-4 w-4 items-center justify-center rounded-full border-r-2 border-gray'
           onViewportEnter={() => {
             if (hasNextPage && !isFetchingNextPage) fetchNextPage();
           }}
