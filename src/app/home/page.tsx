@@ -1,10 +1,11 @@
 import { listNews } from '@lib/actions/news.action';
 import { SERVICE_CATEGORY } from '@enums/service-category.enum';
 import NewsList from '@components/NewsList';
+import { SERVICE_PAGINATION } from '@enums/service-pagination.enum';
 
 export default async function Home({ searchParams }: { searchParams: Promise<TServiceParams> }) {
-  const { page = 1, pageSize = 20, category = SERVICE_CATEGORY.TECHNOLOGY } = await searchParams;
-  const news = await listNews({ pageSize, page, category });
+  const { page = 1, pageSize = SERVICE_PAGINATION.PAGE_SIZE_25, category = SERVICE_CATEGORY.TECHNOLOGY } = await searchParams;
+  const news = await listNews({ page, pageSize, category });
 
   return (
     <div className='flex h-full flex-col gap-4 p-5'>

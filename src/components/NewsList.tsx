@@ -3,22 +3,24 @@
 import { useMemo } from 'react';
 import { motion } from 'motion/react';
 import { listNews } from '@lib/actions/news.action';
-import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
+import { SERVICE_CATEGORY } from '@enums/service-category.enum';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import { SERVICE_PAGINATION } from '@enums/service-pagination.enum';
 import Link from 'next/link';
 
 export default function NewsList({ initialNews }: { initialNews: TServiceListResponse<IArticle> }) {
-  const pageSize = SERVICE_PAGINATION.PAGE_SIZE_20;
+  const pageSize = SERVICE_PAGINATION.PAGE_SIZE_25;
 
-  const { data, hasNextPage, isFetchingNextPage, fetchNextPage } = useSuspenseInfiniteQuery<TServiceListResponse<IArticle>>({
+  const { data, hasNextPage, isFetchingNextPage, fetchNextPage } = useInfiniteQuery<TServiceListResponse<IArticle>>({
     queryKey: ['get-infinite-news'],
-    initialPageParam: 0,
-    initialData: { pages: [initialNews], pageParams: [0] },
-    getNextPageParam: (_lastGroup, groups) =>
-      groups.length < (groups[0]?.totalResults ?? 0) / Number(pageSize) ? groups.length : undefined,
+    initialPageParam: 1,
+    initialData: { pages: [initialNews], pageParams: [1] },
+    getNextPageParam: (_lastGroup, groups) => {
+      const nextPage = groups.length + 1;
+      return nextPage < (groups[0]?.totalResults ?? 2) / Number(pageSize) ? nextPage : undefined;
+    },
     queryFn: async ({ pageParam = 1 }) => {
-      const page = Number(pageParam) * Number(pageSize);
-      const result = await listNews({ page, pageSize });
+      const result = await listNews({ page: Number(pageParam), pageSize, category: SERVICE_CATEGORY.TECHNOLOGY });
       return result;
     },
   });
@@ -36,18 +38,16 @@ export default function NewsList({ initialNews }: { initialNews: TServiceListRes
         });
 
         return (
-          <li key={index}>
-            <a className='flex flex-col'>
-              <div className='flex items-baseline justify-between gap-1'>
-                <Link href={item.url} className='font-medium underline duration-150 ease-in-out hover:text-red'>
-                  {item.title}
-                </Link>
+          <li key={index} className='flex flex-col'>
+            <div className='flex items-baseline justify-between gap-1'>
+              <Link href={item.url} className='font-medium underline duration-150 ease-in-out hover:text-red'>
+                {item.title}
+              </Link>
 
-                <div className='whitespace-nowrap text-xs text-gray'>{publishedDate}</div>
-              </div>
+              <div className='whitespace-nowrap text-xs text-gray'>{publishedDate}</div>
+            </div>
 
-              <p className='text-xs text-gray-light'>{item.description}</p>
-            </a>
+            <p className='text-xs text-gray-light'>{item.description}</p>
           </li>
         );
       })}
