@@ -1,21 +1,23 @@
+import Link from 'next/link';
+
 export default function Logo() {
   return (
-    <a
+    <Link
       href='/'
-      className='border-black-light font-atariClassic col-[1/2] flex flex-col items-center justify-center border-r p-5 text-lg text-white'
+      className='col-[1/2] flex flex-col items-center justify-center border-r border-black-light p-5 font-atariClassic text-lg text-white'
     >
-      <div className='w-fit'>DAILY</div>
+      <h1 className='w-fit'>DAILY</h1>
 
       <div className='flex items-center gap-1'>
-        <span className='text-lg font-bold'>NEWS</span>
+        <h1 className='text-lg font-bold'>NEWS</h1>
 
         <div className='grid grid-cols-2 gap-0.5'>
-          <span className='bg-gray h-[6px] w-[6px]'></span>
-          <span className='bg-yellow h-[6px] w-[6px]'></span>
-          <span className='bg-magenta h-[6px] w-[6px]'></span>
-          <span className='bg-blue h-[6px] w-[6px]'></span>
+          <span className='h-[6px] w-[6px] bg-gray'></span>
+          <span className='h-[6px] w-[6px] bg-yellow'></span>
+          <span className='h-[6px] w-[6px] bg-magenta'></span>
+          <span className='h-[6px] w-[6px] bg-blue'></span>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

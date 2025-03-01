@@ -25,13 +25,13 @@ export declare global {
     category?: SERVICE_CATEGORY;
   }
 
-  export type INewsArticleSource = {
+  export type IArticleSource = {
     id: string | null;
     name: string;
   };
 
-  interface INewsArticle {
-    source: INewsArticleSource;
+  interface IArticle {
+    source: IArticleSource;
     author: string | null;
     title: string;
     description: string | null;

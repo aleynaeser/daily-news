@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <div className='text-[11px] text-gray-light'>
+    <footer className='text-[11px] text-gray-light'>
       <div className='flex items-center justify-between border-t border-black-light p-5'>
         <div className='grid grid-cols-5 gap-0.5 opacity-50'>
           <span className='h-[6px] w-[6px] bg-yellow'></span>
@@ -18,26 +18,24 @@ export default function Footer() {
           <span className='h-[6px] w-[6px] bg-yellow'></span>
         </div>
 
-        <div className=''>
-          <ul className='social-media-list flex gap-4'>
-            {socialMediaLinks.map((Item, index) => (
-              <li key={index}>
-                <Item.icon />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className='flex gap-4'>
+          {socialMediaLinks.map((Item, index) => (
+            <li key={index}>
+              <Item.icon />
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className='border-t border-black-light p-5 text-center'>
-        <div>© 2024 Daily News, by Aleyna Eser</div>
-        <div>
+        <h3>© 2024 Daily News, by Aleyna Eser</h3>
+        <p>
           All rights reserved.{' '}
           <Link className='text-red underline' href='https://aleynaeser.site/' target='_blank'>
             www.aleynaeser.site
           </Link>
-        </div>
+        </p>
       </div>
-    </div>
+    </footer>
   );
 }

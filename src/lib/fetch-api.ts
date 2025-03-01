@@ -46,10 +46,7 @@ export const createConfig = async (config: IApiConfig) => {
   return { path, manipulatedConfig };
 };
 
-export async function baseFetch<T = any>(
-  url: string,
-  config: IApiConfig,
-): Promise<TServiceListResponse<T> | TServiceErrorResponse> {
+export async function baseFetch<T = any>(url: string, config: IApiConfig): Promise<TServiceListResponse<T>> {
   const { path, manipulatedConfig } = await createConfig(config);
   const manipulatedUrl = url?.[0] === '/' || url === '' ? url : '/' + url;
   const completeURL = new URL(path + manipulatedUrl);

@@ -21,8 +21,8 @@ export default function Menu() {
       </ul>
 
       <Link
-        href='https://www.linkedin.com/in/aleyna-eser-818043185/'
         target='_blank'
+        href='https://www.linkedin.com/in/aleyna-eser-818043185/'
         className='rounded-2xl bg-gradient-to-l from-[#a48e00] to-[#a92777] px-2 py-[5px] text-center font-atariClassic text-[9px] duration-150 ease-in-out default:from-[#a48e00] hover:bg-magenta hover:from-inherit hover:to-inherit'
       >
         Get Touch
