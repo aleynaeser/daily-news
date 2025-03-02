@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { BackgroundGrid } from '@components/BackgroundGrid';
-import { anonymousProFont } from '@fonts/anonymous-pro-font';
+ 
+import { atariClassicFont } from '@fonts/attari-classic-font';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import * as motion from 'motion/react-client';
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const customFont = `${anonymousProFont.variable}`;
+  const customFont = `  ${atariClassicFont.variable}`;
 
   return (
     <html lang='en' className={customFont}>
