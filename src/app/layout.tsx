@@ -34,6 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
       <ReactQueryProvider>
         <motion.body
+          suppressHydrationWarning
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className={`relative h-full bg-[#060606] font-anonymousPro text-sm text-off-white`}
