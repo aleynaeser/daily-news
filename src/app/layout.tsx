@@ -40,7 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           transition={{ duration: 0.5, scale: { type: 'spring', visualDuration: 0.5, bounce: 0.5 } }}
         >
           <main
-            className={`relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border border-black-light bg-black text-sm`}
+            className={`relative z-10 mx-auto my-10 h-full min-h-[calc(100vh-80px)] max-w-3xl border border-black-light bg-black text-sm xs:m-0 xs:max-w-full sm:max-w-xl`}
           >
             <Header />
             <section className='min-h-[calc(100vh-450px)]'>{children}</section>

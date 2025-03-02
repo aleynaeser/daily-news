@@ -14,7 +14,6 @@ export default {
     screens: {
       xs: { max: '575px' },
       sm: { min: '575px', max: '991px' },
-      md: { max: '1199px' },
     },
     animation: {
       shine: 'shine 3s linear infinite',
