@@ -42,7 +42,11 @@ export default function NewsList({ initialNews }: { initialNews: TServiceListRes
         return (
           <li key={index} className='flex flex-col gap-1'>
             <div className='flex items-baseline justify-between gap-1'>
-              <Link href={item.url} className='font-medium underline duration-150 ease-in-out hover:text-red'>
+              <Link
+                href={item.url}
+                target='_blank'
+                className='font-medium underline duration-150 ease-in-out hover:text-red'
+              >
                 {item.title}
               </Link>
 

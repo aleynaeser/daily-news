@@ -5,8 +5,8 @@ import { useRef, useEffect, useState } from 'react';
 export function BackgroundGrid() {
   const speed = 0.1;
   const squareSize = 40;
-  const borderColor = '#222222';
-  const hoverFillColor = '#111111';
+  const borderColor = '#424242';
+  const hoverFillColor = '#202020';
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const requestRef = useRef<number>(undefined);
