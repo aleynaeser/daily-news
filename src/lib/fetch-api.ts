@@ -19,8 +19,7 @@ interface IApiConfig {
 }
 
 export const createConfig = async (config: IApiConfig) => {
-  //! Fix this process.env.NEXT_PUBLIC_API_KEY
-  const apiKey = '9abc147b36a049809341b504f3f8164f';
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY ?? '';
   const baseURL = process.env.NEXT_PUBLIC_SERVICE_URI + '/';
   const path = config.path ? baseURL + config.path : baseURL;
 
