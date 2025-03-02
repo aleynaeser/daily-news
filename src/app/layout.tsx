@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const customFont = `${anonymousProFont.variable} ${atariClassicFont.variable}`;
+  const customFont = `${anonymousProFont.variable}`;
 
   return (
     <html lang='en' className={customFont}>
