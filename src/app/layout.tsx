@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { BackgroundGrid } from '@components/BackgroundGrid';
 import { anonymousProFont } from '@fonts/anonymous-pro-font';
-import { atariClassicFont } from '@fonts/attari-classic-font';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import * as motion from 'motion/react-client';
