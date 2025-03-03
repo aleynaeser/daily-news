@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { BackgroundGrid } from '@components/BackgroundGrid';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { anonymousProFont } from '@fonts/anonymous-pro-font';
 import { atariClassicFont } from '@fonts/attari-classic-font';
 import Header from '@components/Header';
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </main>
 
           <BackgroundGrid />
+          <SpeedInsights />
         </motion.body>
       </ReactQueryProvider>
     </html>
